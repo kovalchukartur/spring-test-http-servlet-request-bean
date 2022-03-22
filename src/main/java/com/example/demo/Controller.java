@@ -12,7 +12,7 @@ public class Controller {
 
     @GetMapping("/ping")
     public String ping() {
-        return "pong" + " " + simpleService.getServerName();
+        return "pong" + " " + simpleService.getServerNameAndQuery();
     }
 
 }

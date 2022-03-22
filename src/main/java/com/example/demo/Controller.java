@@ -11,8 +11,8 @@ public class Controller {
     private final SimpleService simpleService;
 
     @GetMapping("/ping")
-    public String ping(){
-        return "pong" + simpleService.getServerName();
+    public String ping() {
+        return "pong" + " " + simpleService.getServerName();
     }
 
 }

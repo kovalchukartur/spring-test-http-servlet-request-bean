@@ -16,6 +16,6 @@ public class SimpleService {
         String requestQueryString = httpServletRequest.getQueryString();
         log.info("Request query: {}", requestQueryString);
         return httpServletRequest.getServerName() + " " + requestQueryString;
-
     }
+
 }

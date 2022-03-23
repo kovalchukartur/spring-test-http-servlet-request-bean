@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.app.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
@@ -6,11 +6,11 @@ import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
-public class AsyncSimpleService {
+public class AsyncService {
 
     private final SimpleService simpleService;
 
-    public AsyncSimpleService(SimpleService simpleService) {
+    public AsyncService(SimpleService simpleService) {
         this.simpleService = simpleService;
     }
 

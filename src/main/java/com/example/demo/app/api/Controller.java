@@ -1,5 +1,8 @@
-package com.example.demo;
+package com.example.demo.app.api;
 
+import com.example.demo.app.dto.EmployeeDetails;
+import com.example.demo.app.service.AsyncService;
+import com.example.demo.app.service.SimpleService;
 import java.util.UUID;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,14 +14,14 @@ public class Controller {
 
     private final EmployeeDetails employeeDetails;
     private final SimpleService simpleService;
-    private final AsyncSimpleService asyncSimpleService;
+    private final AsyncService asyncService;
 
     public Controller(EmployeeDetails employeeDetails,
                       SimpleService simpleService,
-                      AsyncSimpleService asyncSimpleService) {
+                      AsyncService asyncService) {
         this.employeeDetails = employeeDetails;
         this.simpleService = simpleService;
-        this.asyncSimpleService = asyncSimpleService;
+        this.asyncService = asyncService;
     }
 
     @GetMapping("/ping")
@@ -33,7 +36,7 @@ public class Controller {
 
     @GetMapping("/async/ping")
     public String asyncPing() {
-        asyncSimpleService.getAsyncServerNameAndRequestQuery();
+        asyncService.getAsyncServerNameAndRequestQuery();
         return "pong";
     }
 

@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.app.dto;
 
 import lombok.Data;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,6 @@
-package com.example.demo;
+package com.example.demo.app.service;
 
-import javax.servlet.http.HttpServletRequest;
+import com.example.demo.app.dto.EmployeeDetails;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;

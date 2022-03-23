@@ -7,3 +7,8 @@
 2022-03-23 07:50:15.369  INFO 15646 --- [nio-8080-exec-7] com.example.demo.SimpleService           : User uuid = e0cca80a-7e60-47f5-bd46-03f080a2e418
 2022-03-23 07:50:15.369  INFO 15646 --- [nio-8080-exec-7] com.example.demo.SimpleService           : Request query: test=431
 ```
+
+# TODO: Check optional Bean (useful for non-request thread)
+```
+ObjectProvider
+```

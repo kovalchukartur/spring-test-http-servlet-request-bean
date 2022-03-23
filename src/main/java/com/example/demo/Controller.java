@@ -11,11 +11,14 @@ public class Controller {
 
     private final EmployeeDetails employeeDetails;
     private final SimpleService simpleService;
+    private final AsyncSimpleService asyncSimpleService;
 
     public Controller(EmployeeDetails employeeDetails,
-                      SimpleService simpleService) {
+                      SimpleService simpleService,
+                      AsyncSimpleService asyncSimpleService) {
         this.employeeDetails = employeeDetails;
         this.simpleService = simpleService;
+        this.asyncSimpleService = asyncSimpleService;
     }
 
     @GetMapping("/ping")
@@ -23,7 +26,15 @@ public class Controller {
         UUID uuid = UUID.randomUUID();
         log.info("User uuid = {}", uuid);
         employeeDetails.setId(uuid.toString());
-        return "pong" + " " + simpleService.getServerNameAndRequestQuery();
+        String response = "pong" + " " + simpleService.getServerNameAndRequestQuery();
+        log.info("Response: {}", response);
+        return response;
+    }
+
+    @GetMapping("/async/ping")
+    public String asyncPing() {
+        asyncSimpleService.getAsyncServerNameAndRequestQuery();
+        return "pong";
     }
 
 }

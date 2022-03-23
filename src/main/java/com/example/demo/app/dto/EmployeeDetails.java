@@ -1,16 +1,14 @@
 package com.example.demo.app.dto;
 
 import lombok.Data;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.RequestScope;
 
 @Data
-@Service
+@Component
 @RequestScope
 public class EmployeeDetails {
 
-    private String id;
-    private String name;
-    private String dept;
+    private final EmployeeDetailsDto employeeDetailsDto = new EmployeeDetailsDto();
 
 }

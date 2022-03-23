@@ -9,20 +9,19 @@ import org.springframework.stereotype.Service;
 @Service
 public class SimpleService {
 
+    private final AsyncService asyncService;
     private final EmployeeDetails employeeDetails;
     private final HttpServletRequest httpServletRequest;
 
-    public SimpleService(EmployeeDetails employeeDetails,
+    public SimpleService(AsyncService asyncService, EmployeeDetails employeeDetails,
                          HttpServletRequest httpServletRequest) {
+        this.asyncService = asyncService;
         this.employeeDetails = employeeDetails;
         this.httpServletRequest = httpServletRequest;
     }
 
     public String getServerNameAndRequestQuery() {
-        log.info("User uuid = {}", employeeDetails.getId());
-        String requestQueryString = httpServletRequest.getQueryString();
-        log.info("Request query: {}", requestQueryString);
-        return httpServletRequest.getServerName() + " " + requestQueryString;
+        return asyncService.getServerNameAndRequestQuery(employeeDetails.getEmployeeDetailsDto(), httpServletRequest);
     }
 
 }

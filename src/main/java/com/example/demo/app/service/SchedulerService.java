@@ -18,8 +18,8 @@ public class SchedulerService {
     // todo source of data - it's app context ot external store
     //  so here not need @RequestScope
     //  @Scheduled(fixedRate = 5000)
-    public void greetings() {
-       log.info(employeeDetails.getId()); // accessing request scope bean
+    public void loggingRandomData() {
+       log.info(employeeDetails.getEmployeeDetailsDto().getId()); // accessing request scope bean
     }
 
 }
